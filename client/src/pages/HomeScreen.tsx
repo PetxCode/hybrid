@@ -69,9 +69,7 @@ const HomeScreen = () => {
                     </InputHolder>
 
                     <br />
-                    <br />
-                    <br />
-                    <br />
+
                     {/* <TaskHolder>
                         {
                             todo?.map((props: iTask) => (
@@ -91,8 +89,7 @@ const HomeScreen = () => {
                     </TaskHolder> */}
 
                     <br />
-                    <br />
-                    <br />
+
                     {
                         todo?.map((props => (
                             <Timeline>
