@@ -97,7 +97,7 @@ const HomeScreen = () => {
                         todo?.map((props => (
                             <Timeline>
                                 <Line>
-                                    <Boxed />
+                                    <Boxed bg={props.complete ? "ll" : ''} />
                                     <Lined />
                                 </Line>
                                 <Content>
@@ -177,11 +177,11 @@ height: 40px;
 background-color: silver;
 `
 
-const Boxed = styled.div`
+const Boxed = styled.div<{ bg: string }>`
 width: 10px;
 height: 10px;
 border-radius: 50%;
-background-color: silver;
+background-color: ${({ bg }) => bg ? "#40C463" : "silver"} ;
 
 `
 
