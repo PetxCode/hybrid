@@ -72,7 +72,7 @@ const HomeScreen = () => {
                     <br />
                     <br />
                     <br />
-                    <TaskHolder>
+                    {/* <TaskHolder>
                         {
                             todo?.map((props: iTask) => (
                                 <Task key={props.id}>
@@ -88,7 +88,39 @@ const HomeScreen = () => {
                                 </Task>
                             ))
                         }
-                    </TaskHolder>
+                    </TaskHolder> */}
+
+                    <br />
+                    <br />
+                    <br />
+                    {
+                        todo?.map((props => (
+                            <Timeline>
+                                <Line>
+                                    <Boxed />
+                                    <Lined />
+                                </Line>
+                                <Content>
+                                    <div>
+                                        <Texted>{props.title}</Texted>
+                                        <SubTexted>Sub Title</SubTexted>
+                                    </div>
+                                    <But>
+                                        <Button1 bg="n"
+                                            onClick={() => {
+                                                updateTask(props.id, { complete: true })
+
+                                                window.location.reload()
+                                            }}
+                                        >Update</Button1>
+                                        <Button1 bg="">Delete</Button1>
+                                    </But>
+                                </Content>
+                            </Timeline>
+                        )))
+                    }
+
+
 
                 </Main>
             </Container>
@@ -97,6 +129,75 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen
+
+
+const Button1 = styled.div<{ bg: string }>`
+display: flex;
+align-items: center;
+justify-content: center;
+width: 60px;
+height: 40px;
+padding: 0 10px;
+background-color: ${({ bg }) => bg ? "purple" : "red"};
+border-radius: 3px;
+color: white;
+transition: all 350ms;
+margin-left: 10px;
+font-size: 12px;
+
+:hover{
+    cursor: pointer;
+    transform: translate(0, 5px);
+}
+`
+
+const But = styled.div`
+display: flex;
+`
+
+const SubTexted = styled.div`
+font-size: 12px;
+`
+
+const Texted = styled.div`
+font-weight: 600;
+`
+
+const Content = styled.div`
+display: flex;
+/* align-items: center; */
+justify-content: space-between;
+flex:1
+`
+
+const Lined = styled.div`
+width: 1px;
+height: 40px;
+
+background-color: silver;
+`
+
+const Boxed = styled.div`
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: silver;
+
+`
+
+const Line = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-right: 10px;
+margin-top: 6px;
+`
+
+const Timeline = styled.div`
+display: flex;
+width: 400px;
+margin-top: -10px;
+`
 
 const Title = styled.div`
 font-weight: 600px;
